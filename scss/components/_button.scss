@@ -1,0 +1,58 @@
+.btn {
+    width: 16rem;
+    height: 4rem;
+    text-decoration: none;
+    @include flexLayout(space-around);
+    position: relative;
+    &:hover .btn-bg {
+        width: 18rem;
+    }
+    &:hover .btn-text {
+        color: color(secondary);
+    }
+    &:hover .arrow {
+        transform: translateX(1rem);
+    }
+    &:hover .arrow-line-1 {
+        width: 2rem;
+    }
+    &-bg {
+        width: 4rem;
+        height: 4rem;
+        background-color: color(primary);
+        border-radius: 5rem;
+        position: absolute;
+        transition: width .2s;
+        left: 0;
+    }
+    &-text {
+        font-size: size(xs);
+        text-transform: uppercase;
+        color: color(primary);
+        z-index: 3;
+    }
+    .arrow {
+        @include flexLayout;
+        &-line {
+            height: .2rem;
+            background-color: color(secondary);
+            position: absolute;
+            transform-origin: right;
+            transition: transform .2s;
+            &-1 {
+                width: 0;
+                transform: translateX(-.7rem);
+                transition: width .2s;
+            }
+            &-2 {
+                width: 1rem;
+                transform: rotateZ(45deg);
+            }
+            &-3 {
+                width: 1rem;
+                transform: rotateZ(-45deg);
+            }
+        }
+    }
+
+}

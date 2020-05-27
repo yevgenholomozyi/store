@@ -1,0 +1,48 @@
+.dropdown-li {
+    position: relative;
+    &:after {
+        content: '\203A';
+        font-family: "Font Awesome 5 Free";
+        font-weight: bold;
+    }
+    &:hover {
+        &:after {
+            content:'\f078';
+        }
+        .dropdown {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+.dropdown {
+    position: absolute;
+    top: 3rem;
+    width: 10rem;
+    right: -2.8rem;
+    background-color: darken(color(ternary), 5%);
+    @include navigation;
+    padding: 1rem;
+    border-radius: .2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .4s;
+    z-index: 2;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: -1.5rem;
+        left: 7.3rem;
+        border-right: solid 15px transparent;
+        border-left: solid 15px transparent;
+        border-bottom: solid 15px darken(color(ternary), 5%);
+    }
+    &-item {
+        margin: .5rem 0;
+    }
+    &-link {
+        font-weight: 300px;
+        font-size: size(xs);
+    }
+}

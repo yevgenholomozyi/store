@@ -1,0 +1,94 @@
+.products {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    &-heading {
+        margin: 5rem 0;
+        &-text {
+            text-align: center;
+            font-size: size(lg) + 2rem;
+            font-weight: 300;
+            color: color(primary);
+        }
+    }
+    &-wrapper {
+        @include flexLayout;
+    }
+}
+.product {
+    position: relative;
+    &:hover {
+        .product-description {
+            opacity: 1;
+            visibility: visible;
+        }        
+    }   
+}
+.product {
+    position: relative;
+
+    img {
+    width: 100%;
+    transition: .5s all;
+    }
+
+    &-description {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparentize(color(secondary), .4);
+        padding: 2rem;
+        border: .1rem solid color(primary);
+        border-radius: .5rem;
+        color: color(primary);
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 1s .5s;
+        @include response(lg) {
+            padding: 1rem;
+        }
+        @include response(sm) {
+            background-color: transparent;
+            border: none;
+        }
+        &-heading {
+            font-size: size(xl);
+            @include response(xl) {
+               font-size: size(md);
+            }
+        }
+        &-price {
+            font-weight: 300;
+            margin: 1rem, 0;
+            font-size: size(lg);
+            @include response(xl) {
+                font-size: size(sm);
+            }
+            @include response(sm) {
+                display: none;
+            }
+            span {
+                font-weight: 600;
+            }
+        }
+        &-btn {
+            display: block;
+            text-decoration: none;
+            color: color(quarternary);
+            padding: .5rem 1rem;
+            border: .1rem solid color(quarternary);
+            background-color: lighten(color(primary), .2);
+            @include response(xl) {
+                padding: .2rem .5rem;
+             }
+             @include response(sm) {
+                padding: .5rem .7rem;
+                width: 2rem;
+             }
+        }
+    }
+}
+.products-btn {
+    @include flexLayout;
+}
